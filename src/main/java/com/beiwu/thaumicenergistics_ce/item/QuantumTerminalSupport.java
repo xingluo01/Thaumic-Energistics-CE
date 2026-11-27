@@ -27,11 +27,9 @@ public final class QuantumTerminalSupport {
 
     public static void registerUpgrades() {
         if (!enabled() || card() == null || card() == Items.AIR) return;
+        // 两个无线奥术终端在 AE2WTLib 在场时已作为 WTDefinition 由 UpgradeHelper 自动登记量子桥卡；
+        // 此处仅给未进入 WTDefinition 的无线源质终端补充登记，避免卡片 Tooltip 重复条目。
         Upgrades.add(card(), TECEItems.WIRELESS_ESSENTIA_TERMINAL.get(), 1);
-        Upgrades.add(card(), TECEItems.WIRELESS_ARCANE_CRAFTING_TERMINAL.get(), 1);
-        // 编码终端也是无线物品，没这张卡就只能站在访问点旁边用。
-        // 漏登的后果是槽位过滤器直接拒收，玩家看到「放不下」。
-        Upgrades.add(card(), TECEItems.WIRELESS_ARCANE_ENCODING_TERMINAL.get(), 1);
     }
 
     public static IUpgradeInventory upgrades(ItemStack stack, appeng.api.upgrades.ItemUpgradesChanged changed) {

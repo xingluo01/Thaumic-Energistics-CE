@@ -180,7 +180,7 @@ public final class ClientSetup {
                                 inventory,
                                 title,
                                 StyleManager.loadStyleDoc("/screens/arcane_encoding_terminal.json")));
-        // 无线编码终端：画面与面板版一致，样式只是把标题换成物品名。
+        // 无线源质终端：样式文件 include AE2 原生无线终端布局，统一由独立 json 承载。
         event.register(
                 TECEMenuTypes.WIRELESS_ESSENTIA_TERMINAL.get(),
                 (MenuEssentiaTerminal menu, Inventory inventory, Component title) ->
@@ -188,7 +188,7 @@ public final class ClientSetup {
                                 menu,
                                 inventory,
                                 title,
-                                StyleManager.loadStyleDoc("/screens/terminals/wireless_terminal.json")));
+                                StyleManager.loadStyleDoc("/screens/wireless_essentia_terminal.json")));
         // 两个无线奥术终端的屏幕二选一，不能先注普通版再注 wtlib 版：
         // NeoForge 的 [RegisterMenuScreensEvent#register] 对同一 MenuType 重复注册是直接抛
         // IllegalStateException，不是后注覆盖先注。

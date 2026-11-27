@@ -298,11 +298,29 @@ public final class ThaumicEnergisticsCE {
                 TECEItems.ARCANE_ENCODING_TERMINAL.get(),
                 1,
                 ARCANE_ENCODING_TERMINAL_PART_UPGRADE_NAME);
-        // 量子桥接卡在 [QuantumTerminalSupport] 里登记（带 Tooltip 名称）。
-        // vis 卡不登记：编码菜单不付 vis，登了就是能装不生效。
-        // AE2WTLib 的通用终端是另一个物品，上面这些登记到不了它那里，单独走它的 UpgradeHelper。
+        // 无线源质终端始终走独立实现（未入 AE2WTLib WTDefinition），需自行登记能量卡。
+        Upgrades.add(
+                AEItems.ENERGY_CARD,
+                TECEItems.WIRELESS_ESSENTIA_TERMINAL.get(),
+                2,
+                appeng.core.localization.GuiText.WirelessTerminals.getTranslationKey());
+        // 无线源质终端的量子桥接卡在 [QuantumTerminalSupport] 里登记。
+        // vis 卡不登记给编码终端：编码菜单不付 vis，登了就是能装不生效。
+        // AE2WTLib 在场时，两个无线奥术终端的能量卡与量子桥卡由 AE2WTLib UpgradeHelper 登记；
+        // 仅补充通用终端（ItemWUT）对源质访问卡与 Vis 连接卡的登记。缺 AE2WTLib 时为两个独立奥术终端补登记能量卡。
         if (com.beiwu.thaumicenergistics_ce.integration.ae2wtlib.AE2WTIntegration.enabled()) {
             com.beiwu.thaumicenergistics_ce.integration.ae2wtlib.AE2WTIntegration.registerUniversalTerminalUpgrades();
+        } else {
+            Upgrades.add(
+                    AEItems.ENERGY_CARD,
+                    TECEItems.WIRELESS_ARCANE_CRAFTING_TERMINAL.get(),
+                    2,
+                    appeng.core.localization.GuiText.WirelessTerminals.getTranslationKey());
+            Upgrades.add(
+                    AEItems.ENERGY_CARD,
+                    TECEItems.WIRELESS_ARCANE_ENCODING_TERMINAL.get(),
+                    2,
+                    appeng.core.localization.GuiText.WirelessTerminals.getTranslationKey());
         }
         logAccessCardRegistration();
     }

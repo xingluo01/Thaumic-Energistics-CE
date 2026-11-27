@@ -17,10 +17,9 @@ public class AE2WTArcaneEncodingTerminalItem extends ItemWT {
     private static final String DESCRIPTION_ID = "item.thaumicenergistics_ce.wireless_arcane_encoding_terminal";
 
     /**
-     * 2 格：源质访问卡 1 张 + 能量卡。面板版编码终端一个升级槽也没有，
-     * 无线形态至少要让玩家能装进那张卡并把能量卡配上，所以不是 1。
+     * 2 格：支持源质访问卡、能量卡与量子桥卡。
      * 槽数要与 {@code WTDefinition.upgradeCount} 一致：AE2WTLib 用后者当
-     * 卡片可装上限（能量卡上限也来自它），两者对不上就会出现「槽有空位但卡报满」。
+     * 能量卡可装上限，两者对不上就会出现「槽有空位但卡报满」。
      */
     private static final int UPGRADE_SLOTS = 2;
 

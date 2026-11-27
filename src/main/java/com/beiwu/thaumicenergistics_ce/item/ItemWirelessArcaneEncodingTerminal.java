@@ -35,7 +35,9 @@ public class ItemWirelessArcaneEncodingTerminal extends WirelessTerminalItem {
 
     @Override
     public IUpgradeInventory getUpgrades(ItemStack stack) {
-        return QuantumTerminalSupport.upgrades(stack, (changed, upgrades) -> {});
+        return QuantumTerminalSupport.upgrades(stack, (changed, upgrades) ->
+                setAEMaxPowerMultiplier(
+                        changed, 1 + appeng.api.upgrades.Upgrades.getEnergyCardMultiplier(upgrades)));
     }
 
     @Override

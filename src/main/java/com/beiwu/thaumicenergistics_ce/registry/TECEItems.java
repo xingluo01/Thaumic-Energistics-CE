@@ -233,7 +233,7 @@ public final class TECEItems {
 
     /**
      * 无线奥术编码终端：界面与面板版同一套，九格网格与知识核心存在物品组件里。
-     * 升级槽只有 1 格，收能量卡；量子桥卡装不进去，编码菜单没挂奇点槽。
+     * 升级槽为 2 格，支持源质访问卡、能量卡，装有 AE2WTLib 时同样支持量子桥卡与奇点槽。
      */
     public static final DeferredItem<Item> WIRELESS_ARCANE_ENCODING_TERMINAL =
             REGISTRY.registerItem("wireless_arcane_encoding_terminal",
